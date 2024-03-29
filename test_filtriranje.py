@@ -4,8 +4,8 @@ import pytest
 from PIL import Image
 from main import Slika
 
-PUTANJA_TEST_SLIKE = "C:\\Users\\mihai\\Desktop\\zr-s-2024-filter-slike\\switz.png"
-PUTANJA_SACUVANE_SLIKE = "C:\\Users\\mihai\\Desktop\\zr-s-2024-filter-slike\\sacuvana_switz.png"
+PUTANJA_TEST_SLIKE = "switz.png"
+PUTANJA_SACUVANE_SLIKE = "sacuvana_switz.png"
 
 def test_ucitaj_sliku():
     slika = Slika(PUTANJA_TEST_SLIKE)
