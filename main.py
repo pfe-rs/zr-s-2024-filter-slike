@@ -119,15 +119,15 @@ class MedianFiltar:
 
 
 
-slika_obj = Slika("C:\\Users\\mihai\\Desktop\\zr-s-2024-filter-slike\\switz.png")
-slika = slika_obj.slika 
+# slika_obj = Slika("C:\\Users\\mihai\\Desktop\\zr-s-2024-filter-slike\\switz.png")
+# slika = slika_obj.slika 
 
 
-laplacian_filtr = LaplacianFiltar(cv2.CV_8U, ksize=3)
-laplacian_ivice = laplacian_filtr.primeni_filtar(slika)
+# laplacian_filtr = LaplacianFiltar(cv2.CV_8U, ksize=3)
+# laplacian_ivice = laplacian_filtr.primeni_filtar(slika)
 
 
-if laplacian_ivice is not None:
-    cv2.imshow("Laplacian Ivice", laplacian_ivice)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+# if laplacian_ivice is not None:
+#     cv2.imshow("Laplacian Ivice", laplacian_ivice)
+#     cv2.waitKey(0)
+#     cv2.destroyAllWindows()
