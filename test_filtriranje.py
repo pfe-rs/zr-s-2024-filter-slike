@@ -3,9 +3,10 @@ import numpy as np
 import pytest
 from PIL import Image
 from main import Slika
+import os
 
 PUTANJA_TEST_SLIKE = "switz.png"
-PUTANJA_SACUVANE_SLIKE = "sacuvana_switz.png"
+PUTANJA_SACUVANE_SLIKE = os.path.abspath("sacuvana_switz.png")
 
 def test_ucitaj_sliku():
     slika = Slika(PUTANJA_TEST_SLIKE)
