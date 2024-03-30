@@ -2,6 +2,7 @@ from PIL import Image
 import cv2
 import numpy as np
 import os
+from abc import ABC, abstractmethod
 
 class Slika:
     def __init__(self, putanja=None):
@@ -29,12 +30,13 @@ class Slika:
         self.slika[x, y] = vrednost
 
 
-class Filtar:
+class Filtar(ABC):
+    @abstractmethod
     def primeni_filtar(self, slika):
         pass
 
 
-class GausFiltar:
+class GausFiltar(Filtar):
     def __init__(self, velicina_kernela, sigmaX, sigmaY):
         self.velicina_kernela = velicina_kernela
         self.sigmaX = sigmaX
@@ -52,7 +54,7 @@ class GausFiltar:
         isfiltrirana_slika = cv2.GaussianBlur(slika, (self.velicina_kernela, self.velicina_kernela), self.sigmaX, self.sigmaY)
         return isfiltrirana_slika
 
-class CannyFiltar:
+class CannyFiltar(Filtar):
     def __init__(self, minimalna_vrednost, maksimalna_vrednost, velicina_otvora_blende=3):
         
         self.minimalna_vrednost = minimalna_vrednost
@@ -72,7 +74,7 @@ class CannyFiltar:
         return ivice
 
 
-class LaplacianFiltar:
+class LaplacianFiltar(Filtar):
     def __init__(self, ddepth, ksize=1):
         """
         :param ddepth:Na primer, cv2.CV_8U, cv2.CV_16S, cv2.CV_32F, itd.
@@ -93,7 +95,7 @@ class LaplacianFiltar:
         laplacian = cv2.Laplacian(slika, self.ddepth, ksize=self.ksize)
         return laplacian
 
-class MedianFiltar:
+class MedianFiltar(Filtar):
     def __init__(self, velicina_kernela):
         
 
